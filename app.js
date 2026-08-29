@@ -1,6 +1,8 @@
 const http = require("http");
 const { readFileSync } = require("fs");
-const homePage = readFileSync("./index.html");
+
+//get file
+const homePage = readFileSync("./navbar-app/index.html");
 
 const server = http.createServer((req, res) => {
   const url = req.url;
