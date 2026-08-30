@@ -2,15 +2,15 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("Home page");
+  res.status(200).send("Home page");
 });
 
 app.get("/about", (req, res) => {
-  res.send("About page");
+  res.status(200).send("About page");
 });
 
-app.all("*", (req, res) => {
-  res.send("<h1>resource not found</h1>");
+app.use((req, res) => {
+  res.status(404).send("<h1>resource not found</h1>");
 });
 
 app.listen(5000, () => {
