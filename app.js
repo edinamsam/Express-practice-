@@ -1,18 +1,15 @@
 const express = require("express");
+const path = require("path");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.status(200).send("Home page");
-});
-
-app.get("/about", (req, res) => {
-  res.status(200).send("About page");
+  res.sendFile(path.resolve(__dirname, "./navbar-app/index.html"));
 });
 
 app.use((req, res) => {
-  res.status(404).send("<h1>resource not found</h1>");
+  res.status(400).send("resource not found");
 });
 
 app.listen(5000, () => {
-  console.log("server is listening on port 5000");
+  console.log("Listening on port 5000");
 });
